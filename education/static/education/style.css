@@ -1,0 +1,37 @@
+.my-nav {
+    background-color: #4CAF50;
+}
+
+.my-nav a{
+    color: white !important;
+}
+
+.my-nav a:hover{
+    color: grey !important;
+}
+
+
+.top-margin{
+    margin-top: 50px;
+}
+
+.green-color{
+    color: #4CAF50;
+}
+
+.position-rel{
+    position: relative;
+    z-index: -1;
+}
+
+.bottom-margin{
+    margin-bottom: 50px;
+}
+
+.bottom-margin-1{
+    margin-bottom: 10px;
+}
+
+.just-inline{
+    display: inline;
+}

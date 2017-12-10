@@ -1,0 +1,51 @@
+{% extends "education/base.html" %}
+
+{% block content %}
+<div class='row'>
+    <div class='col-sm-8 offset-sm-2 top-margin '>
+        <div class='row'>
+            <div class='col-sm-12'>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <h4>{{ theme.title }}</h4>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <p>{{ theme.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        {% for article in articles %}
+        <div class='row'>
+            <div class='col-sm-12'>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <h4>{{ article.title }}</h4>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <p>{{ article.content }}</p>
+                    </div>
+                </div>
+                {% if article.code_samples %}
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <code>{{ article.code_samples }}</code>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        <div class='row top-margin bottom-margin'>
+            <div class='col-sm-12 text-center green-color'>
+                <a href='test'>Пройти тест</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

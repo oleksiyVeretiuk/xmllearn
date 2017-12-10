@@ -1,0 +1,55 @@
+{% extends "education/base.html" %}
+
+{% block content %}
+    <div class='row'>
+        <div class='col-sm-8 offset-sm-2 top-margin list-group'>
+            {% for result in results %}
+                <div class='row list-group-item'>
+                    <div class='col-sm-12'>
+                        <div class='row'>
+                            <div class='col-sm-12'>
+                                <h4>{{ result.theme.title }}</h4>
+                            </div>
+                        </div>
+                        {% for answer in result.answers.all %}
+                            <div class='row'>
+                                <div class='col-sm-12 bottom-margin-1'>
+                                    <div class='row'>
+                                        <div class='col-sm-12'>
+                                            <p>{{ answer.question.content }}</p>
+                                        </div>
+                                    </div>
+                                    {% if answer.question.code_samples %}
+                                        <div class='row'>
+                                            <div class='col-sm-12'>
+                                                <code>{{ answer.question.code_samples }}</code>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                {% for q_answer in answer.question.answers.all %}
+                                <div class='col-sm-12'>
+                                    <p class='just-inline'>{{ q_answer.content }}</p>
+                                        {% if answer.answer.pk == q_answer.pk or answer.answer.correct %}
+                                        <span>
+                                            {% if answer.answer.pk == q_answer.pk %}
+                                            Ваша відповідь є
+                                            {% if answer.answer.correct %}
+                                            вірною
+                                            {% else %}
+                                            невірною
+                                            {% endif %}
+                                            {% endif %}
+                                        </span>
+                                        {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
